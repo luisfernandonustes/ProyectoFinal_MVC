@@ -15,4 +15,20 @@ html {
 
 body {
   margin-bottom: 60px;
+  background-color: rgb(204 204 204)
+}
+
+p1 {
+    text-align: center;
+    background-color: rgb(255 255 255);
+    color: rgb(0, 0, 0);
+    opacity: 0.9;
+    font-size: 20px;
+}
+p2 {
+    background-color: rgb(241 241 241);
+    color: rgb(w);
+    opacity: 0.9;
+    font-weight: bold;
+    font-size: 20px;
 }
