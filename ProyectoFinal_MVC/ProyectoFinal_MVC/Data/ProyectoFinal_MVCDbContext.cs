@@ -7,6 +7,7 @@ namespace ProyectoFinal_MVC.Data
     {
         public DbSet<EmpresaConstructora> EmpresaConstructoras { get; set; }
         public DbSet<Trabajador> Trabajadores { get; set; }
+        public DbSet<Construccion> Contrucciones { get; set; }
         public ProyectoFinal_MVCDbContext(DbContextOptions<ProyectoFinal_MVCDbContext> options) : base(options)
         {
 

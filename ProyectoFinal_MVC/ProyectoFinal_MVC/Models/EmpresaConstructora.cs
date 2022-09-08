@@ -4,8 +4,9 @@
     {
         public string Name { get; private set; }
         public string Direccion { get; private set; }
-        public string TipoDeConstruccion { get; private set; }
+        public string Tipo { get; private set; }
         public List<Trabajador> Trabajadores { get; private set; }
+        public List<Construccion> Construcciones { get; private set; }
         ///<sumary>
         ///for ef
         ///</sumay>
@@ -13,15 +14,15 @@
         {
 
         }
-        private EmpresaConstructora(Guid id, string name, string direccion, string tipoDeConstruccion) : base(id)
+        private EmpresaConstructora(Guid id, string name, string direccion, string tipo) : base(id)
         {
             Name = name;
             Direccion = direccion;
-            TipoDeConstruccion = tipoDeConstruccion;
+            Tipo = tipo;
         }
-        public EmpresaConstructora Build(Guid id, string name, string direccion, string tipoDeConstruccion)
+        public static EmpresaConstructora Build(Guid id, string name, string direccion, string tipo)
         {
-            return new EmpresaConstructora(id, name , direccion, tipoDeConstruccion);
+            return new EmpresaConstructora(id, name , direccion, tipo);
         }
     }
 }
