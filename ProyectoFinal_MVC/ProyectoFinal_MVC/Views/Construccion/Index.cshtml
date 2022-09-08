@@ -1,0 +1,45 @@
+﻿@using ProyectoFinal_MVC.Models;
+@model List<Construccion>
+
+@{
+    ViewData["title"] = "Registro Contrucciones";
+}
+
+@if (Model.Count != 0)
+{
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Lugar De Construccion</th>
+                <th scope="col">Tipo</th>
+                <th scope="col">Fecha de Inicio</th>
+                <th scope="col">Fecha Final</th>
+                <th scope="col">ID EmpresaConstructora</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var e in Model)
+            {
+                <tr>
+                    <td>@e.Id</td>
+                    <td>@e.Name</td>
+                    <td>@e.LugarDeConstruccion</td>
+                    <td>@e.Tipo</td>
+                    <td>@e.FechaInicio</td>
+                    <td>@e.FechaFinal</td>
+                    <td>@e.EmpresaConstructoraId</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="card">
+        <div class="card-body">
+            No hay datos Registrados de las Construcciones.
+        </div>
+    </div>
+}

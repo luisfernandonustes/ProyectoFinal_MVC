@@ -1,15 +1,21 @@
 using Microsoft.EntityFrameworkCore;
 using ProyectoFinal_MVC.Data;
+using ProyectoFinal_MVC.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-//add services to the container
+//
+builder.Services.AddScoped<IRepository, Repository>();
+builder.Services.AddScoped<EmpresaConstructoraServices>();
+builder.Services.AddScoped<TrabajadorServices>();
+builder.Services.AddScoped<ConstruccionServices>();
+//configuracion db
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ProyectoFinal_MVCDbContext>(options => options.UseSqlServer(
-    builder.Configuration.GetConnectionString("")));
+    builder.Configuration.GetConnectionString("WebConnectionString")));
 
 var app = builder.Build();
 
