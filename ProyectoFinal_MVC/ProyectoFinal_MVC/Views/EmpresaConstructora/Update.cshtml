@@ -1,20 +1,22 @@
-﻿@model EmpresaConstructora
+﻿@using ProyectoFinal_MVC.Models;
+@model EmpresaConstructora
 @{
-    ViewData["Title"] = "Crear EmpresaConstructora";
+    ViewData["title"] = "Editar EmpresaConstructora";
 }
 <div class="card">
   <div class="card-header">
-    Crear Empresa Constructora
+    Editar Empresa Constructora
   </div>
   <div class="card-body">
-      <form asp-action="Crear" asp-controller="EmpresaConstructora" method="post">
+      <form asp-action="Update" asp-controller="EmpresaConstructora" method="post">
+           <input type="hidden" asp-for="Id"/>
       <div class="mb-3">
         <label class="form-label">Nombre</label>
         <input asp-for="Name" type="text" class="form-control">
         <span asp-validation-for="Name" class="text-danger"></span>
       </div>
       <div class="mb-3">
-        <label class="form-label">Direccion Empresa Constructora</label>
+        <label class="form-label">Direccion</label>
         <input asp-for="Direccion" type="text" class="form-control">
         <span asp-validation-for="Direccion" class="text-danger"></span>
       </div>
@@ -23,8 +25,8 @@
         <input asp-for="Tipo" type="text" class="form-control">
         <span asp-validation-for="Tipo" class="text-danger"></span>
       </div>
-      <button type="submit" class="btn btn-primary">Guardar</button>
-      <a asp-action="Index" asp-controller="EmpresaConstructora" class="btn btn-warning">Volver a la lista de Empresas Constructoras</a>
+      <button type="submit" class="btn btn-primary">Update</button>
+      <a asp-action="Index" asp-controller="EmpresaConstructora" class="btn btn-warning">Volver a la lista de Empresa Constructora</a>
     </form>
   </div>
 </div>

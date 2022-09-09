@@ -21,5 +21,19 @@ namespace ProyectoFinal_MVC.Services
         {
             return await this.repository.GetAll<EmpresaConstructora>();
         }
+        public async Task<EmpresaConstructora> Getobj(Guid id)
+        {
+            return await this.repository.Getobj<EmpresaConstructora>(id);
+        }
+        public async Task Update(EmpresaConstructora empresaConstructora)
+        {
+            this.repository.Update(empresaConstructora);
+            await this.repository.Commit();
+        }
+        public async Task Delete(EmpresaConstructora empresaConstructora)
+        {
+            this.repository.Delete(empresaConstructora);
+            await this.repository.Commit();
+        }
     }
 }

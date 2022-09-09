@@ -1,47 +1,63 @@
 ﻿@using ProyectoFinal_MVC.Models;
 @model List<EmpresaConstructora>
-
 @{
-    ViewData["title"] = "Registro de Empresas Constructoras";
+    ViewData["title"] = "Registros de Empresas Constructoras";
 }
-
-@if (Model.Count != 0)
+<center>
+ <div class="col-sm-6">
+  <a class="btn btn-primary" asp-area="" asp-controller="EmpresaConstructora" asp-action="Crear">Registrar una Nueva Empresa Constructora</a>
+  </div>
+</center>
+ <br/>
+@if (Model.Count !=0)
 {
     <table class="table table-dark">
         <thead>
             <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Direccion</th>
-                <th scope="col">Tipo</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Direcciòn de Empresa Constructora</th>
+              <th scope="col">Tipo</th>
+              <th scope="col">Editar</th>
+              <th scope="col">Borrar</th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var e in Model)
+            @foreach(var item in Model)
             {
                 <tr>
-                    <td>@e.Id</td>
-                    <td>@e.Name</td>
-                    <td>@e.Direccion</td>
-                    <td>@e.Tipo</td>
+                    <td>@item.Name</td>
+                    <td>@item.Direccion</td>
+                    <td>@item.Tipo</td>
+                    <td><a asp-route-id="@item.Id" asp-action="Update"
+                        class="btn btn-success btnsm">Editar</a>
+                    </td>
+                    <td>
+                      <input onclick="jsDelete('@item.Id');" type="button" value="Borrar" class="btn btn-danger"/>
+                    </td>
                 </tr>
             }
-        </tbody>
+        </tbody>       
     </table>
-}
-else
-{
-    <div class="card">
+ }
+ else
+ {
+      <div class="card">
         <div class="card-body">
-            <p1>No hay datos Registrados En la Empresa constructora. </p1>
-           
+            No hay  Datos de Empresas Constructoras Registradas.
         </div>
-
-    </div>
-    <div class="card">
-        <div class="card-body">
-         <Center><p2>Desea agregar una nueva Empresa constructora</p2><br><br>
-          <a asp-action="Crear" class="btn btn-success">Crear EmpresaConstructora</a></Center>
-       </div>
-    </div>
-}
+      </div>
+ }
+ <script>
+    function jsDelete(id) {
+       if (confirm("Esta seguro de Borrar los Datos de Esta Empresa Constructora?")) {
+          url = "@Url.Content("~/EmpresaConstructora/Delete")" + "/" + id;
+          $.post(url, function(data) {
+            if (data == "1") {
+              document.location.href="@Url.Content("~/EmpresaConstructora/")"
+            } else {
+              alert("Ocurrio un error")
+            }
+          })
+       }    
+    }
+ </script>

@@ -1,13 +1,15 @@
-﻿@model Construccion
+﻿@using ProyectoFinal_MVC.Models;
+@model Construccion
 @{
-    ViewData["Title"] = "Crear Construccion";
+    ViewData["title"] = "Editar Construccion";
 }
 <div class="card">
   <div class="card-header">
-    Crear Construccion
+    Editar Construcciòn
   </div>
   <div class="card-body">
-      <form asp-action="Crear" asp-controller="Construccion" method="post">
+      <form asp-action="Update" asp-controller="Construccion" method="post">
+           <input type="hidden" asp-for="Id"/>
       <div class="mb-3">
         <label class="form-label">Nombre</label>
         <input asp-for="Name" type="text" class="form-control">
@@ -29,17 +31,12 @@
         <span asp-validation-for="FechaInicio" class="text-danger"></span>
       </div>
       <div class="mb-3">
-        <label class="form-label">Fecha Final</label>
-        <input asp-for="FechaFinal" type="text" class="form-control">
-        <span asp-validation-for="FechaFinal" class="text-danger"></span>
-      </div>
-      <div class="mb-3">
         <label class="form-label">ID EmpresaConstructora</label>
         <input asp-for="EmpresaConstructoraId" type="text" class="form-control">
         <span asp-validation-for="EmpresaConstructoraId" class="text-danger"></span>
       </div>
-      <button type="submit" class="btn btn-primary">Guardar</button>
-      <a asp-action="Index" asp-controller="Construccion" class="btn btn-warning">Volver a la lista de Construccion</a>
+      <button type="submit" class="btn btn-primary">Update</button>
+      <a asp-action="Index" asp-controller="Construccion" class="btn btn-warning">Volver a la lista de Construcciones</a>
     </form>
   </div>
 </div>

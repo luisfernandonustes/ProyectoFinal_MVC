@@ -1,52 +1,69 @@
 ﻿@using ProyectoFinal_MVC.Models;
 @model List<Construccion>
-
 @{
-    ViewData["title"] = "Registro Contrucciones";
+    ViewData["title"] = "Registros de Construcciones";
 }
-
-@if (Model.Count != 0)
+<center>
+ <div class="col-sm-6">
+  <a class="btn btn-primary" asp-area="" asp-controller="Construccion" asp-action="Crear">Registrar una Nueva Construccion</a>
+  </div>
+</center>
+ <br/>
+@if (Model.Count !=0)
 {
     <table class="table table-dark">
         <thead>
             <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Lugar De Construccion</th>
-                <th scope="col">Tipo</th>
-                <th scope="col">Fecha de Inicio</th>
-                <th scope="col">Fecha Final</th>
-                <th scope="col">ID EmpresaConstructora</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Lugar de Construccion</th>
+              <th scope="col">Tipo</th>
+              <th scope="col">Fecha de Inicio</th>
+              <th scope="col">Fecha Final</th>
+              <th scope="col">ID Empresa Constructora</th>
+              <th scope="col">Editar</th>
+              <th scope="col">Borrar</th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var e in Model)
+            @foreach(var item in Model)
             {
                 <tr>
-                    <td>@e.Id</td>
-                    <td>@e.Name</td>
-                    <td>@e.LugarDeConstruccion</td>
-                    <td>@e.Tipo</td>
-                    <td>@e.FechaInicio</td>
-                    <td>@e.FechaFinal</td>
-                    <td>@e.EmpresaConstructoraId</td>
+                    <td>@item.Name</td>
+                    <td>@item.LugarDeConstruccion</td>
+                    <td>@item.Tipo</td>
+                    <td>@item.FechaInicio</td>
+                    <td>@item.FechaFinal</td>
+                    <td>@item.EmpresaConstructoraId</td>
+                    <td><a asp-route-id="@item.Id" asp-action="Update"
+                        class="btn btn-success btnsm">Editar</a>
+                    </td>
+                    <td>
+                     <input onclick="jsDelete('@item.Id');" type="button" value="Borrar" class="btn btn-danger"/>
+                    </td>
                 </tr>
             }
-        </tbody>
+        </tbody>       
     </table>
-}
-else
-{
-    <div class="card">
+ }
+ else
+ {
+      <div class="card">
         <div class="card-body">
-          <p1>No hay datos Registrados de las Construcciones.</p1>
+            No hay  Datos de Construcciones Registrados.
         </div>
-
-    </div>
-    <div class="card">
-        <div class="card-body">
-         <Center><p2>Desea agregar una Nueva Construccion</p2><br><br>
-          <a asp-action="Crear" class="btn btn-success">Crear Construcciones</a></Center>
-       </div>
-    </div>
-}
+      </div>
+ }
+ <script>
+    function jsDelete(id) {
+       if (confirm("Esta seguro de Borrar los Datos de Esta Construcciòn?")) {
+          url = "@Url.Content("~/Construccion/Delete")" + "/" + id;
+          $.post(url, function(data) {
+            if (data == "1") {
+              document.location.href="@Url.Content("~/Construccion/")"
+            } else {
+              alert("Ocurrio un error")
+            }
+          })
+       }    
+    }
+ </script>

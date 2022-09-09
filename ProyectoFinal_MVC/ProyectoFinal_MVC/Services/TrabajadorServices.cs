@@ -14,9 +14,8 @@ namespace ProyectoFinal_MVC.Services
         {
             if (trabajador is null)
                 throw new Exception("Trabajador es Nulo");
-
-            await this.repository.Save(trabajador);
-            await this.repository.Commit();
+                 await this.repository.Save(trabajador);
+                 await this.repository.Commit();
         }
         public async Task<Trabajador> Getobj(Guid id)
         {
