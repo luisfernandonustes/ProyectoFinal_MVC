@@ -18,9 +18,23 @@ namespace ProyectoFinal_MVC.Services
             await this.repository.Save(trabajador);
             await this.repository.Commit();
         }
+        public async Task<Trabajador> Getobj(Guid id)
+        {
+            return await this.repository.Getobj<Trabajador>(id);
+        }
         public async Task<List<Trabajador>> GetAllTrabajador()
         {
             return await this.repository.GetAll<Trabajador>();
+        }
+        public async Task Update(Trabajador trabajador)
+        {
+            this.repository.Update(trabajador);
+            await this.repository.Commit();
+        }
+        public async Task Delete(Trabajador trabajador)
+        {
+            this.repository.Delete(trabajador);
+            await this.repository.Commit();
         }
     }
 }

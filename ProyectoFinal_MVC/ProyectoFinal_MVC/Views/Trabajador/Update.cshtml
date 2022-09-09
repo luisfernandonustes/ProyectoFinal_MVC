@@ -1,0 +1,45 @@
+﻿@using ProyectoFinal_MVC.Models;
+@model Trabajador
+@{
+    ViewData["title"] = "Update";
+}
+
+<div class="card">
+  <div class="card-header">
+    Editar Contacto
+  </div>
+  <div class="card-body">
+      <form asp-action="Update" asp-controller="Trabajador" method="post">
+           <input type="hidden" asp-for="Id"/>
+      <div class="mb-3">
+        <label class="form-label">Nombre</label>
+        <input asp-for="Name" type="text" class="form-control">
+        <span asp-validation-for="Name" class="text-danger"></span>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Documento de Identidad</label>
+        <input asp-for="DocumentoIdentidad" type="text" class="form-control">
+        <span asp-validation-for="DocumentoIdentidad" class="text-danger"></span>
+      </div>
+       <div class="mb-3">
+        <label class="form-label">Profesion</label>
+        <input asp-for="Profesion" type="text" class="form-control">
+        <span asp-validation-for="Profesion" class="text-danger"></span>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Tipo de Trabajador</label>
+        <input asp-for="TipoDeTrabajador" type="text" class="form-control">
+        <span asp-validation-for="TipoDeTrabajador" class="text-danger"></span>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">ID EmpresaConstructora</label>
+        <input asp-for="EmpresaConstructoraId" type="text" class="form-control">
+        <span asp-validation-for="EmpresaConstructoraId" class="text-danger"></span>
+      </div>
+      <button type="submit" class="btn btn-primary">Update</button>
+      <a asp-action="Index" asp-controller="Trabajador" class="btn btn-warning">Volver a la lista Contactos</a>
+    </form>
+
+
+  </div>
+</div>

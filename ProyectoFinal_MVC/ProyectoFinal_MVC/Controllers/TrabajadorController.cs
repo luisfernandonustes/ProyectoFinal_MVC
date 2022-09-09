@@ -29,5 +29,35 @@ namespace ProyectoFinal_MVC.Controllers
         {
             return View();
         }
+        [HttpGet]
+        public async Task<IActionResult> Update(Guid id)
+        {
+            var trabajador = await trabajadorServices.Getobj(id);
+            return View(trabajador);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Update(Guid id, string name, string documentoIdentidad, string profesion, string TipoDeTrabajador, 
+            DateTime fechaDeNacimiento, Guid empresaConstructoraId)
+        {
+            if (ModelState.IsValid)
+            {
+                var trabajador = Trabajador.Build(id, name, documentoIdentidad, profesion, TipoDeTrabajador, fechaDeNacimiento, empresaConstructoraId);
+                await this.trabajadorServices.Update(trabajador);
+                return RedirectToAction(nameof(Index));
+            }
+            else
+            {
+                return NoContent();
+            }
+        }
+        [HttpPost]
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            var trabajador = await trabajadorServices.Getobj(id);
+            await this.trabajadorServices.Delete(trabajador);
+            return Content("1");
+        }
+
     }
 }
