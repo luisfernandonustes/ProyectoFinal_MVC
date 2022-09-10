@@ -17,7 +17,103 @@ body {
   margin-bottom: 60px;
   background-color: rgb(204 204 204)
 }
-
+.containerestadisticas {
+    margin-top: 0px;
+    margin-left: 0px;
+    width: 1030px;
+    height: 470px;
+    background-color: rgb(40 40 40);
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgba(26,24,26,0.29);
+    border-radius: 10px;
+    -webkit-box-shadow: 5px 5px 2px 0px rgba(26,24,26,0.29);
+    -moz-box-shadow: 5px 5px 2px 0px rgba(26,24,26,0.29);
+    box-shadow: 5px 5px 2px 0px rgba(26,24,26,0.29);
+}
+.containerestadisticas1 {
+    margin-top: 50px;
+    margin-left: 10px;
+    width: 1010px;
+    height: 387.5px;
+    background-color: rgb(40 40 40);
+    margin-left: 10px;
+    margin-top: 10px;
+    border-style: none;
+    border-width: 0px;
+    border-color: rgb(255, 255, 255);
+    border-radius: 10px;
+}
+.headernotasdoc1p {
+    height: 50px;
+    width: 1010px;
+    margin-left: 10px;
+    margin-top: 10px;
+    border-style: solid;
+    border-width: 0px;
+    border-color: rgba(40 40 40);
+    border-radius: 8px;
+}
+.columna1p {
+    display: inline-block;
+    vertical-align: top;
+    height: 367px;
+    width: 400px;
+    margin-left: 10px;
+    margin-top: 10px;
+    background-image: url("/img/fondo1.jpg");
+    border-style: solid;
+    border-width: 0px;
+    border-color: rgba(26,24,26,0.29);
+    border-radius: 8px;
+    border: 5px solid #eee;
+    -webkit-box-shadow: 4px 4px 4px rgba(0,0,0,0.2);
+    -moz-box-shadow: 4px 4px 4px rgba(0,0,0,0.2);
+    box-shadow: 4px 4px 4px rgba(0,0,0,0.2);
+    -webkit-transition: all 0.5s ease-out;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+}
+.columna1p:hover {
+    opacity: 1;
+    -webkit-box-reflect: below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(.7, transparent), to(rgba(0,0,0,0.4)));
+    -webkit-box-shadow: 0px 0px 20px rgba(255,255,255,0.8);
+    -moz-box-shadow: 0px 0px 20px rgba(255,255,255,0.8);
+    box-shadow: 0px 0px 20px rgba(255,255,255,0.8);
+    -webkit-transform: rotate(-7deg);
+    -moz-transform: rotate(-7deg);
+    -o-transform: rotate(-7deg);
+}
+.columna2p {
+    display: inline-block;
+    vertical-align: top;
+    height: 367px;
+    width: 400px;
+    margin-left: 10px;
+    margin-top: 10px;
+    background-image: url("/img/fondo2.jpg");
+    border-style: solid;
+    border-width: 0px;
+    border-color: rgba(26,24,26,0.29);
+    border-radius: 8px;
+    border: 5px solid #eee;
+    -webkit-box-shadow: 4px 4px 4px rgba(0,0,0,0.2);
+    -moz-box-shadow: 4px 4px 4px rgba(0,0,0,0.2);
+    box-shadow: 4px 4px 4px rgba(0,0,0,0.2);
+    -webkit-transition: all 0.5s ease-out;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+}
+    .columna2p:hover {
+        opacity: 1;
+        -webkit-box-reflect: below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(.7, transparent), to(rgba(0,0,0,0.4)));
+        -webkit-box-shadow: 0px 0px 20px rgba(255,255,255,0.8);
+        -moz-box-shadow: 0px 0px 20px rgba(255,255,255,0.8);
+        box-shadow: 0px 0px 20px rgba(255,255,255,0.8);
+        -webkit-transform: rotate(-7deg);
+        -moz-transform: rotate(-7deg);
+        -o-transform: rotate(-7deg);
+    }
 p1 {
     text-align: center;
     background-color: rgb(255 255 255);
@@ -32,3 +128,11 @@ p2 {
     font-weight: bold;
     font-size: 20px;
 }
+p3 {
+    background-color: rgb(40 40 40);
+    color: rgb(241 241 241);
+    opacity: 0.9;
+    font-weight: bold;
+    font-size: 30px;
+}
+

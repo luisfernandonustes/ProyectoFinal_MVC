@@ -17,17 +17,17 @@ namespace ProyectoFinal_MVC.Controllers
             var empresaConstructora = await empresaConstructoraServices.GetAllEmpresaConstructora();
             return View(empresaConstructora);
         }
+        [HttpGet]
+        public IActionResult Crear()
+        {
+            return View();
+        }
         [HttpPost]
         public async Task<IActionResult> Crear(string name, string direccion, string tipo)
         {
             var empresaConstructora = EmpresaConstructora.Build(Guid.NewGuid(), name, direccion, tipo);
             await this.empresaConstructoraServices.Crear(empresaConstructora);
-            return View();
-        }
-        [HttpGet]
-        public IActionResult Crear()
-        {
-            return View();
+            return RedirectToAction(nameof(Index));
         }
         [HttpGet]
         public async Task<IActionResult> Update(Guid id)
